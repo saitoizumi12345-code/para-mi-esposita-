@@ -80,16 +80,6 @@ Mi amor, solo quería recordarte lo muchísimo que significas para mí.  A veces
 <p id="captionFoto" style="margin-top:12px;color:#ff2e7a">Tu y yo, siempre ♡</p>
 </section>
 
-<section>
-<h2>Nuestra Historia</h2>
-<div style="margin-top:20px">
-<div class="timeline">
-<div class="item"><small>6 DE FEBRERO DE 2024</small><h4>Donde todo empezó</h4><img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=500"></div>
-<div class="item"><small>10 DE OCTUBRE DE 2024</small><h4>Nuestro primer viaje</h4><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500"></div>
-</div>
-</div>
-</section>
-</div>
 
 <script>
 const fechaInicio = new Date('2022-03-18T00:00:00');
@@ -122,7 +112,8 @@ let idx=0;
 function cambiarFoto(d){idx=(idx+d+fotos.length)%fotos.length; document.getElementById('fotoGaleria').src=fotos[idx].url; document.getElementById('captionFoto').innerText=fotos[idx].cap}
 
 const audio = document.getElementById('audio');
-audio.src = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
+audio.src = "cancion.mp3";
+
 function toggleAudio(){
  if(audio.paused){audio.play(); document.getElementById('nombreCancion').style.display='block'}
  else audio.pause();
