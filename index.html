@@ -135,7 +135,8 @@ function actualizarDots(){
 function cambiarFoto(d){idx=(idx+d+fotos.length)%fotos.length; document.getElementById('fotoGaleria').src=fotos[idx].url; document.getElementById('captionFoto').innerText=fotos[idx].cap; actualizarDots();}
 
 const audio = document.getElementById('audio');
-audio.src = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
+audio.src = "cancion.mp3";
+document.getElementById('nombreCancion').innerText = "Amor completo - Mon Laferte ♡";
 function toggleAudio(){
  if(audio.paused){audio.play(); document.getElementById('nombreCancion').style.display='block'}
  else audio.pause();
