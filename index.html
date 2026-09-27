@@ -3,143 +3,196 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Mi Amor</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<title>Para Mi Esposa 💜</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{--rosa:#ff6b9d;--rosa-claro:#fff0f5;--rosa-fuerte:#ff2e7a}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Poppins',sans-serif;background:#fff5f7;color:#4a2d3a;overflow-x:hidden}
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;background:linear-gradient(180deg,#fff 0%,#fff0f5 100%)}
-.hero img{width:140px;animation:flotar 3s infinite}
-@keyframes flotar{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.btn{margin-top:25px;background:var(--rosa-fuerte);color:#fff;padding:14px 28px;border-radius:30px;border:none;font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 10px 20px rgba(255,46,122,.3)}
-section{max-width:500px;margin:0 auto;padding:40px 20px;text-align:center}
-.contador{display:flex;gap:12px;justify-content:center;margin:20px 0}
-.box{background:#fff;border-radius:20px;padding:15px 12px;min-width:80px;box-shadow:0 5px 15px rgba(0,0,0,.05)}
-.box b{font-size:32px;color:var(--rosa-fuerte);display:block}
-.box span{font-size:12px;letter-spacing:1px}
-.tiempo{font-size:18px;letter-spacing:2px;margin-top:10px}
-.musica{border:2px dashed #ffb6d0;border-radius:20px;padding:20px}
-.carta{text-align:left;background:#fff;border-radius:20px;padding:25px;line-height:1.7;box-shadow:0 5px 20px rgba(0,0,0,.05);font-style:italic}
-.galeria{position:relative}
-.galeria img{width:100%;border-radius:20px;height:500px;object-fit:cover}
-.flecha{position:absolute;top:50%;transform:translateY(-50%);background:#fff;border:none;width:40px;height:40px;border-radius:50%;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.2);font-size:20px}
-.flecha.prev{left:10px}.flecha.next{right:10px}
-.indicadores{display:flex;gap:6px;justify-content:center;margin-top:12px}
-.dot{width:8px;height:8px;border-radius:50%;background:#ffd0df}
-.dot.activo{background:var(--rosa-fuerte)}
-.timeline{border-left:2px solid #ffb6d0;margin-left:15px;padding-left:25px;text-align:left}
-.item{margin:30px 0;position:relative}
-.item::before{content:'♡';position:absolute;left:-36px;top:0;background:#fff;border:2px solid #ffb6d0;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px}
-.item img{width:100%;border-radius:15px;margin-top:10px}
+body{background:#fff5f8;font-family:'Poppins',sans-serif;color:#4a2c3a;overflow-x:hidden}
+.pantalla{position:fixed;inset:0;background:#fff5f8;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:99;transition:0.8s}
+.pantalla.hide{transform:translateY(-100%);opacity:0;pointer-events:none}
+.heart-icon{width:110px;height:110px;background:#ff5e8a;border-radius:40% 40% 50% 50%;display:flex;align-items:center;justify-content:center;position:relative;animation:flota 2s infinite}
+.heart-icon::before{content:'💌';font-size:50px}
+@keyframes flota{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.badge{background:#ffe6ee;color:#ff5e8a;padding:6px 18px;border-radius:20px;font-size:13px;margin:20px 0}
+.titulo1{font-family:'DM Serif Display',serif;font-size:38px;text-align:center;line-height:1.1}
+.titulo1 span{color:#ff5e8a}
+.sub{font-size:14px;opacity:0.6;margin:15px 25px;text-align:center;max-width:340px}
+.btn{margin-top:25px;background:#ff2e6b;color:white;border:none;padding:16px 35px;border-radius:30px;font-size:16px;font-weight:500;cursor:pointer;box-shadow:0 10px 25px rgba(255,46,107,0.3)}
+.container{max-width:420px;margin:0 auto;padding:20px 18px;background:#fff5f8;padding-bottom:90px}
+.card{background:white;border-radius:25px;padding:25px;box-shadow:0 10px 40px rgba(0,0,0,0.05);margin-bottom:20px;text-align:center}
+.big-heart{width:60px;height:60px;background:#ff5e8a;border-radius:50% 50% 50% 50%;margin:0 auto 15px;display:flex;align-items:center;justify-content:center}
+.big-heart::after{content:'❤️';color:white;font-size:28px}
+.titulo2{font-family:'DM Serif Display',serif;font-size:32px}
+.fecha-label{font-size:12px;opacity:0.5;margin-top:8px}
+.contador-grid{display:flex;justify-content:space-between;margin:20px 0}
+.contador-grid div{background:#fff0f5;border-radius:18px;width:31%;padding:15px 5px}
+.contador-grid b{font-size:28px;display:block;color:#ff2e6b}
+.contador-grid span{font-size:11px;letter-spacing:1px;opacity:0.6}
+.hms{display:flex;justify-content:center;gap:8px;margin-top:10px}
+.hms div{background:#f9f9f9;border-radius:10px;padding:8px 12px;font-size:14px;min-width:55px}
+.hms b{font-size:16px}
+.total{margin-top:15px;font-size:13px;color:#ff5e8a}
+.music-box{border:1px dashed #ffb6cc}
+.music-icon{font-size:30px}
+.carta{text-align:center;line-height:1.9;font-size:15px;color:#5a3a4a}
+.fotos{position:relative;border-radius:20px;overflow:hidden;height:480px;background:#eee}
+.fotos img{width:100%;height:100%;object-fit:cover}
+.nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.9);border:none;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:22px}
+.prev{left:10px}.next{right:10px}
+.dots{display:flex;justify-content:center;gap:6px;margin-top:12px}
+.dot{width:7px;height:7px;background:#ffd6e0;border-radius:50%}
+.dot.active{background:#ff2e6b}
+.linea{width:2px;background:#ffdee8;position:absolute;left:15px;top:0;bottom:0}
+.historia-item{position:relative;padding-left:45px;margin-bottom:30px;text-align:left}
+.historia-item::before{content:'♡';position:absolute;left:4px;top:0;width:26px;height:26px;background:white;border:2px solid #ff8fab;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;color:#ff2e6b}
+.historia-item.fecha-h{font-size:11px;color:#ff8fab;font-weight:600;letter-spacing:1px}
+.historia-item h3{font-family:'DM Serif Display',serif;font-size:18px;margin:4px 0}
+.historia-item img{width:100%;border-radius:15px;margin-top:10px}
+.audio-bar{position:fixed;bottom:15px;left:50%;transform:translateX(-50%);background:#1a1a1a;color:white;border-radius:30px;padding:10px 18px;display:flex;align-items:center;gap:10px;width:90%;max-width:400px;z-index:10}
 </style>
 </head>
 <body>
-<div class="hero">
-<img src="https://cdn-icons-png.flaticon.com/512/833/833472.png">
-<p style="background:#ffe3ec;color:#ff2e7a;padding:5px 12px;border-radius:20px;font-size:12px;margin:15px 0">Hecho con mucho cariño ♡</p>
-<h1 style="font-family:'Great Vibes',cursive;font-size:42px">Hecho con amor,<br>solo para ti.</h1>
-<button class="btn" onclick="document.getElementById('contenido').scrollIntoView({behavior:'smooth'})">Toca aquí, mi amor →</button>
+
+<div class="pantalla" id="pantalla1">
+    <div class="heart-icon"></div>
+    <div style="margin-top:20px">Preparando la sorpresa...</div>
+    <div style="opacity:0.4;font-size:13px">Un momento 💌</div>
 </div>
 
-<div id="contenido">
-<section>
-<div style="font-size:50px">💗</div>
-<h2 style="font-family:'Great Vibes',cursive;font-size:48px">Para Mi Amor</h2>
-<p id="fechaTexto">Juntos desde 20 de agosto de 2026</p>
-<div class="contador">
-<div class="box"><b id="anios">0</b><span>AÑOS</span></div>
-<div class="box"><b id="meses">0</b><span>MESES</span></div>
-<div class="box"><b id="dias">0</b><span>DÍAS</span></div>
+<div class="pantalla" id="pantalla2" style="display:none">
+    <div class="badge">💌 Hecho con mucho cariño</div>
+    <div class="heart-icon" style="width:130px;height:130px"></div>
+    <div class="titulo1">Hecho con amor,<br><span>solo para ti.</span></div>
+    <div class="sub">El amor de tu vida preparó esta página con mucho cariño, solo para sorprenderte. Prepara el corazón, te va a encantar.</div>
+    <button class="btn" onclick="entrar()">Toca aquí, mi amor →</button>
+    <div style="font-size:11px;opacity:0.4;margin-top:10px">Toca para revelar</div>
 </div>
-<div class="tiempo" id="reloj">00 : 00 : 00</div>
-<p style="margin-top:10px;font-size:13px">🌸 Son <span id="totalDias">0</span> días de amor 🌸</p>
-</section>
 
-<section class="musica">
-<h3>Nuestra Música</h3>
-<p style="font-size:12px;color:#999">La banda sonora de nuestro amor</p>
-<button class="btn" style="background:#ff6b9d" onclick="toggleAudio()">♪ Toca para descubrir</button>
-<audio id="audio" loop></audio>
-<p id="nombreCancion" style="margin-top:15px;font-weight:600;display:none">Nuestra canción</p>
-</section>
+<div class="container" id="main" style="display:none">
+    <div class="card">
+        <div class="big-heart"></div>
+        <div class="titulo2">Para Mi Esposa</div>
+        <div class="fecha-label">📅 Juntos desde 20 de agosto de 2026</div>
+        <div class="contador-grid">
+            <div><b id="anios">0</b><span>AÑOS</span></div>
+            <div><b id="meses">0</b><span>MESES</span></div>
+            <div><b id="dias">0</b><span>DÍAS</span></div>
+        </div>
+        <div class="hms">
+            <div><b id="horas">00</b> Horas</div>
+            <div><b id="min">00</b> Min</div>
+            <div><b id="seg">00</b> Seg</div>
+        </div>
+        <div class="total" id="totalDias">🌸 Son 0 días de amor 🌸</div>
+    </div>
 
-<section>
-<div class="carta">
-Mi Vale, todavía me acuerdo de la primera vez que te vi...
-</div>
-</section>
+    <div class="card music-box">
+        <div class="music-icon">♫</div>
+        <h3 style="font-family:'DM Serif Display'">Nuestra Música</h3>
+        <p style="font-size:12px;opacity:0.5">La banda sonora de nuestro amor</p>
+        <button class="btn" style="padding:12px 25px;font-size:14px" onclick="playMusica()">🎵 Toca para descubrir</button>
+        <div id="repro" style="display:none;margin-top:10px;color:#ff2e6b;font-size:13px">♪ Reproduciendo ♪</div>
+    </div>
 
-<section>
-<h2 style="font-size:32px">Nuestros Momentos</h2>
-<p style="color:#999;font-size:13px">7 recuerdos que guardamos en el corazón</p>
-<div class="galeria" style="margin-top:20px">
-<button class="flecha prev" onclick="cambiarFoto(-1)">‹</button>
-<img id="fotoGaleria" src="foto1.jpg">
-<button class="flecha next" onclick="cambiarFoto(1)">›</button>
-</div>
-<p id="captionFoto" style="margin-top:12px;color:#ff2e7a;font-weight:600">Foto 1 - Donde todo empezó 💕</p>
-<div class="indicadores" id="indicadores"></div>
-<p style="margin-top:10px;font-size:12px;color:#999"><span id="numFoto">1</span> / 7</p>
-</section>
+    <div class="card carta">
+        <p>
+        Mi amor,<br><br>
+        Eres lo que completa mi vida. No hay suficientes palabras para explicar y expresar lo que siento por ti.<br><br>
+        Quiero que sepas que te amo con todo mi corazón. Cada día a tu lado es un regalo. Eres mi todo, mi sueño hecho realidad.<br><br>
+        Gracias por elegirme todos los días. Esta página es solo una forma pequeña de decirte algo gigante: te amo, hoy y siempre.<br><br>
+        <b>Tuyo,</b><br>
+        Saito 💜
+        </p>
+    </div>
 
-<section>
-<h2 style="font-size:32px">Nuestra Historia</h2>
-<div style="margin-top:20px">
-<div class="timeline">
-<div class="item"><small>6 20 DE AGOSTO DE 2026</small><h4>Donde todo empezó</h4><img src="foto1.jpg"></div>
+    <h2 style="font-family:'DM Serif Display';text-align:center;margin:20px 0 5px">Nuestros Momentos</h2>
+    <p style="text-align:center;font-size:12px;opacity:0.5;margin-bottom:15px">7 recuerdos que guardamos en el corazón</p>
 
+    <div class="card" style="padding:10px">
+        <div class="fotos">
+            <img id="foto" src="foto1.jpg">
+            <button class="nav prev" onclick="cambia(-1)">‹</button>
+            <button class="nav next" onclick="cambia(1)">›</button>
+        </div>
+        <p id="pieFoto" style="margin-top:12px;font-size:13px;color:#ff5e8a">1 / 7 - "Tú y yo, siempre 💜"</p>
+        <div class="dots" id="dots"></div>
+    </div>
+
+    <h2 style="font-family:'DM Serif Display';text-align:center;margin:30px 0 5px">Nuestra Historia</h2>
+    <p style="text-align:center;font-size:12px;opacity:0.5;margin-bottom:20px">Momentos que marcaron nuestro camino</p>
+
+    <div style="position:relative">
+        <div class="linea"></div>
+        <div class="historia-item">
+            <div class="fecha-h">20 DE AGOSTO DE 2026</div>
+            <h3>Donde todo empezó</h3>
+            <img src="foto1.jpg">
+        </div>
+        <div class="historia-item">
+            <div class="fecha-h">HOY</div>
+            <h3>Nuestro amor completo</h3>
+            <img src="foto7.jpg">
+        </div>
+    </div>
 </div>
+
+<div class="audio-bar" id="audioBar">
+    <div style="width:40px;height:40px;background:#ff2e6b;border-radius:10px;display:flex;align-items:center;justify-content:center">♫</div>
+    <div style="flex:1">
+        <div style="font-size:13px;font-weight:600">Amor Completo - Mon Laferte</div>
+        <div style="font-size:11px;opacity:0.6" id="estadoAudio">Pausado</div>
+    </div>
+    <button onclick="playMusica()" style="background:none;border:none;color:white;font-size:20px">▶️</button>
 </div>
-</section>
-</div>
+
+<audio id="audio" src="cancion.mp3" loop></audio>
 
 <script>
-const fechaInicio = new Date('2026-09-20T00:00:00');
-function actualizarContador(){
- const ahora = new Date();
- let diff = ahora - fechaInicio;
- const totalDias = Math.floor(diff / (1000*60*60*24));
- document.getElementById('totalDias').innerText = totalDias;
- let anios = ahora.getFullYear() - fechaInicio.getFullYear();
- let meses = ahora.getMonth() - fechaInicio.getMonth();
- let dias = ahora.getDate() - fechaInicio.getDate();
- if(dias<0){meses--; dias+=30} if(meses<0){anios--; meses+=12}
- document.getElementById('anios').innerText=anios;
- document.getElementById('meses').innerText=meses;
- document.getElementById('dias').innerText=dias;
- document.getElementById('reloj').innerText = ahora.toLocaleTimeString();
+setTimeout(()=>{document.getElementById('pantalla1').style.display='none';document.getElementById('pantalla2').style.display='flex';},1800);
+function entrar(){
+    document.getElementById('pantalla2').classList.add('hide');
+    setTimeout(()=>{
+        document.getElementById('pantalla2').style.display='none';
+        document.getElementById('main').style.display='block';
+        playMusica();
+    },600);
 }
-setInterval(actualizarContador,1000); actualizarContador();
+const inicio = new Date(2026,7,20);
+function updateContador(){
+    const ahora = new Date(); let diff = ahora - inicio; if(diff<0) diff=0;
+    const diasTotales = Math.floor(diff/(1000*60*60*24));
+    const anios = Math.floor(diasTotales/365); const meses = Math.floor((diasTotales%365)/30); const dias = (diasTotales%365)%30;
+    document.getElementById('anios').innerText=anios; document.getElementById('meses').innerText=meses; document.getElementById('dias').innerText=dias;
+    document.getElementById('totalDias').innerText=🌸 Son ${diasTotales} días de amor 🌸;
+    document.getElementById('horas').innerText=String(ahora.getHours()).padStart(2,'0');
+    document.getElementById('min').innerText=String(ahora.getMinutes()).padStart(2,'0');
+    document.getElementById('seg').innerText=String(ahora.getSeconds()).padStart(2,'0');
+}
+setInterval(updateContador,1000); updateContador();
+function playMusica(){
+    const a=document.getElementById('audio'); const e=document.getElementById('estadoAudio');
+    if(a.paused){a.play();e.innerText='Reproduciendo...';document.getElementById('repro').style.display='block';}
+    else{a.pause();e.innerText='Pausado';}
+}
 
-// 7 FOTOS
-const fotos = [
- {url:"foto1.jpg", cap:"Foto 1 - Donde todo empezó 💕"},
- {url:"foto2.jpg", cap:"Foto 2 - Nuestra primera salida"},
- {url:"foto3.jpg", cap:"Foto 3 - Ese día inolvidable"},
- {url:"foto4.jpg", cap:"Foto 4 - Tu risa favorita"},
- {url:"foto5.jpg", cap:"Foto 5 - Nuestro viaje"},
- {url:"foto6.jpg", cap:"Foto 6 - Siempre juntos"},
- {url:"foto7.jpg", cap:"Foto 7 - Te amo por siempre ♡"}
+// 7 FOTOS LOCALES
+const fotos=[
+    {url:"foto1.jpg",txt:"1 / 7 - Tú y yo, siempre 💜"},
+    {url:"foto2.jpg",txt:"2 / 7 - Nuestra primera foto juntos"},
+    {url:"foto3.jpg",txt:"3 / 7 - Ese día que nunca olvidaremos"},
+    {url:"foto4.jpg",txt:"4 / 7 - Mi lugar favorito eres tú"},
+    {url:"foto5.jpg",txt:"5 / 7 - Amarte es mi plan favorito"},
+    {url:"foto6.jpg",txt:"6 / 7 - Juntos es mejor"},
+    {url:"foto7.jpg",txt:"7 / 7 - Para siempre juntos 💜"}
 ];
 let idx=0;
-const contenedorDots = document.getElementById('indicadores');
-fotos.forEach((_,i)=>{
-  let d=document.createElement('div'); d.className='dot'+(i==0?' activo':'');
-  contenedorDots.appendChild(d);
-});
-function actualizarDots(){
-  document.querySelectorAll('.dot').forEach((d,i)=>{d.classList.toggle('activo', i===idx)});
-  document.getElementById('numFoto').innerText = idx+1;
-}
-function cambiarFoto(d){idx=(idx+d+fotos.length)%fotos.length; document.getElementById('fotoGaleria').src=fotos[idx].url; document.getElementById('captionFoto').innerText=fotos[idx].cap; actualizarDots();}
-
-const audio = document.getElementById('audio');
-audio.src = "cancion.mp3";
-document.getElementById('nombreCancion').innerText = "Amor completo - Mon Laferte ♡";
-function toggleAudio(){
- if(audio.paused){audio.play(); document.getElementById('nombreCancion').style.display='block'}
- else audio.pause();
+const dotsContainer=document.getElementById('dots');
+fotos.forEach((_,i)=>{const d=document.createElement('div');d.className='dot'+(i===0?' active':'');dotsContainer.appendChild(d);});
+function cambia(d){
+    idx=(idx+d+fotos.length)%fotos.length;
+    document.getElementById('foto').src=fotos[idx].url;
+    document.getElementById('pieFoto').innerText=fotos[idx].txt;
+    document.querySelectorAll('.dot').forEach((dot,i)=>dot.classList.toggle('active',i===idx));
 }
 </script>
 </body>
