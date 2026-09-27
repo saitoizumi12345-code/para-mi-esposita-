@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Mi Amor</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root{--rosa:#ff6b9d;--rosa-claro:#fff0f5;--rosa-fuerte:#ff2e7a}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;background:#fff5f7;color:#4a2d3a;overflow-x:hidden}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;background:linear-gradient(180deg,#fff 0%,#fff0f5 100%)}
+.hero img{width:140px;animation:flotar 3s infinite}
+@keyframes flotar{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.btn{margin-top:25px;background:var(--rosa-fuerte);color:#fff;padding:14px 28px;border-radius:30px;border:none;font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 10px 20px rgba(255,46,122,.3)}
+section{max-width:500px;margin:0 auto;padding:40px 20px;text-align:center}
+.contador{display:flex;gap:12px;justify-content:center;margin:20px 0}
+.box{background:#fff;border-radius:20px;padding:15px 12px;min-width:80px;box-shadow:0 5px 15px rgba(0,0,0,.05)}
+.box b{font-size:32px;color:var(--rosa-fuerte);display:block}
+.box span{font-size:12px;letter-spacing:1px}
+.tiempo{font-size:18px;letter-spacing:2px;margin-top:10px}
+.musica{border:2px dashed #ffb6d0;border-radius:20px;padding:20px}
+.carta{text-align:left;background:#fff;border-radius:20px;padding:25px;line-height:1.7;box-shadow:0 5px 20px rgba(0,0,0,.05);font-style:italic}
+.galeria{position:relative}
+.galeria img{width:100%;border-radius:20px;height:500px;object-fit:cover}
+.flecha{position:absolute;top:50%;transform:translateY(-50%);background:#fff;border:none;width:40px;height:40px;border-radius:50%;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.2);font-size:20px}
+.flecha.prev{left:10px}.flecha.next{right:10px}
+.indicadores{display:flex;gap:6px;justify-content:center;margin-top:12px}
+.dot{width:8px;height:8px;border-radius:50%;background:#ffd0df}
+.dot.activo{background:var(--rosa-fuerte)}
+.timeline{border-left:2px solid #ffb6d0;margin-left:15px;padding-left:25px;text-align:left}
+.item{margin:30px 0;position:relative}
+.item::before{content:'♡';position:absolute;left:-36px;top:0;background:#fff;border:2px solid #ffb6d0;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px}
+.item img{width:100%;border-radius:15px;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="hero">
+<img src="https://cdn-icons-png.flaticon.com/512/833/833472.png">
+<p style="background:#ffe3ec;color:#ff2e7a;padding:5px 12px;border-radius:20px;font-size:12px;margin:15px 0">Hecho con mucho cariño ♡</p>
+<h1 style="font-family:'Great Vibes',cursive;font-size:42px">Hecho con amor,<br>solo para ti.</h1>
+<button class="btn" onclick="document.getElementById('contenido').scrollIntoView({behavior:'smooth'})">Toca aquí, mi amor →</button>
+</div>
+
+<div id="contenido">
+<section>
+<div style="font-size:50px">💗</div>
+<h2 style="font-family:'Great Vibes',cursive;font-size:48px">Para Mi Amor</h2>
+<p id="fechaTexto">Juntos desde 18 de marzo de 2022</p>
+<div class="contador">
+<div class="box"><b id="anios">0</b><span>AÑOS</span></div>
+<div class="box"><b id="meses">0</b><span>MESES</span></div>
+<div class="box"><b id="dias">0</b><span>DÍAS</span></div>
+</div>
+<div class="tiempo" id="reloj">00 : 00 : 00</div>
+<p style="margin-top:10px;font-size:13px">🌸 Son <span id="totalDias">0</span> días de amor 🌸</p>
+</section>
+
+<section class="musica">
+<h3>Nuestra Música</h3>
+<p style="font-size:12px;color:#999">La banda sonora de nuestro amor</p>
+<button class="btn" style="background:#ff6b9d" onclick="toggleAudio()">♪ Toca para descubrir</button>
+<audio id="audio" loop></audio>
+<p id="nombreCancion" style="margin-top:15px;font-weight:600;display:none">Nuestra canción</p>
+</section>
+
+<section>
+<div class="carta">
+Mi Vale, todavía me acuerdo de la primera vez que te vi...
+</div>
+</section>
+
+<section>
+<h2 style="font-size:32px">Nuestros Momentos</h2>
+<p style="color:#999;font-size:13px">7 recuerdos que guardamos en el corazón</p>
+<div class="galeria" style="margin-top:20px">
+<button class="flecha prev" onclick="cambiarFoto(-1)">‹</button>
+<img id="fotoGaleria" src="foto1.jpg">
+<button class="flecha next" onclick="cambiarFoto(1)">›</button>
+</div>
+<p id="captionFoto" style="margin-top:12px;color:#ff2e7a;font-weight:600">Foto 1 - Donde todo empezó 💕</p>
+<div class="indicadores" id="indicadores"></div>
+<p style="margin-top:10px;font-size:12px;color:#999"><span id="numFoto">1</span> / 7</p>
+</section>
+
+<section>
+<h2 style="font-size:32px">Nuestra Historia</h2>
+<div style="margin-top:20px">
+<div class="timeline">
+<div class="item"><small>6 DE FEBRERO DE 2024</small><h4>Donde todo empezó</h4><img src="foto1.jpg"></div>
+<div class="item"><small>10 DE OCTUBRE DE 2024</small><h4>Nuestro primer viaje</h4><img src="foto2.jpg"></div>
+</div>
+</div>
+</section>
+</div>
+
+<script>
+const fechaInicio = new Date('2022-03-18T00:00:00');
+function actualizarContador(){
+ const ahora = new Date();
+ let diff = ahora - fechaInicio;
+ const totalDias = Math.floor(diff / (1000*60*60*24));
+ document.getElementById('totalDias').innerText = totalDias;
+ let anios = ahora.getFullYear() - fechaInicio.getFullYear();
+ let meses = ahora.getMonth() - fechaInicio.getMonth();
+ let dias = ahora.getDate() - fechaInicio.getDate();
+ if(dias<0){meses--; dias+=30} if(meses<0){anios--; meses+=12}
+ document.getElementById('anios').innerText=anios;
+ document.getElementById('meses').innerText=meses;
+ document.getElementById('dias').innerText=dias;
+ document.getElementById('reloj').innerText = ahora.toLocaleTimeString();
+}
+setInterval(actualizarContador,1000); actualizarContador();
+
+// 7 FOTOS
+const fotos = [
+ {url:"foto1.jpg", cap:"Foto 1 - Donde todo empezó 💕"},
+ {url:"foto2.jpg", cap:"Foto 2 - Nuestra primera salida"},
+ {url:"foto3.jpg", cap:"Foto 3 - Ese día inolvidable"},
+ {url:"foto4.jpg", cap:"Foto 4 - Tu risa favorita"},
+ {url:"foto5.jpg", cap:"Foto 5 - Nuestro viaje"},
+ {url:"foto6.jpg", cap:"Foto 6 - Siempre juntos"},
+ {url:"foto7.jpg", cap:"Foto 7 - Te amo por siempre ♡"}
+];
+let idx=0;
+const contenedorDots = document.getElementById('indicadores');
+fotos.forEach((_,i)=>{
+  let d=document.createElement('div'); d.className='dot'+(i==0?' activo':'');
+  contenedorDots.appendChild(d);
+});
+function actualizarDots(){
+  document.querySelectorAll('.dot').forEach((d,i)=>{d.classList.toggle('activo', i===idx)});
+  document.getElementById('numFoto').innerText = idx+1;
+}
+function cambiarFoto(d){idx=(idx+d+fotos.length)%fotos.length; document.getElementById('fotoGaleria').src=fotos[idx].url; document.getElementById('captionFoto').innerText=fotos[idx].cap; actualizarDots();}
+
+const audio = document.getElementById('audio');
+audio.src = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
+function toggleAudio(){
+ if(audio.paused){audio.play(); document.getElementById('nombreCancion').style.display='block'}
+ else audio.pause();
+}
+</script>
+</body>
+</html>
