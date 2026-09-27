@@ -3,120 +3,138 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Mi Amor</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<title>Para Mi Esposita</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--rosa:#ff6b9d;--rosa-claro:#fff0f5;--rosa-fuerte:#ff2e7a}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Poppins',sans-serif;background:#fff5f7;color:#4a2d3a;overflow-x:hidden}
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;background:linear-gradient(180deg,#fff 0%,#fff0f5 100%)}
-.hero img{width:140px;animation:flotar 3s infinite}
-@keyframes flotar{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.btn{margin-top:25px;background:var(--rosa-fuerte);color:#fff;padding:14px 28px;border-radius:30px;border:none;font-size:16px;font-weight:600;cursor:pointer;box-shadow:0 10px 20px rgba(255,46,122,.3)}
-section{max-width:500px;margin:0 auto;padding:40px 20px;text-align:center}
-.contador{display:flex;gap:12px;justify-content:center;margin:20px 0}
-.box{background:#fff;border-radius:20px;padding:15px 12px;min-width:80px;box-shadow:0 5px 15px rgba(0,0,0,.05)}
-.box b{font-size:32px;color:var(--rosa-fuerte);display:block}
-.box span{font-size:12px;letter-spacing:1px}
-.tiempo{font-size:18px;letter-spacing:2px;margin-top:10px}
-.musica{border:2px dashed #ffb6d0;border-radius:20px;padding:20px}
-.carta{text-align:left;background:#fff;border-radius:20px;padding:25px;line-height:1.7;box-shadow:0 5px 20px rgba(0,0,0,.05);font-style:italic}
-.galeria{position:relative}
-.galeria img{width:100%;border-radius:20px;height:400px;object-fit:cover}
-.flecha{position:absolute;top:50%;transform:translateY(-50%);background:#fff;border:none;width:40px;height:40px;border-radius:50%;cursor:pointer}
-.flecha.prev{left:10px}.flecha.next{right:10px}
-.timeline{border-left:2px solid #ffb6d0;margin-left:15px;padding-left:25px;text-align:left}
-.item{margin:30px 0;position:relative}
-.item::before{content:'♡';position:absolute;left:-36px;top:0;background:#fff;border:2px solid #ffb6d0;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px}
-.item img{width:100%;border-radius:15px;margin-top:10px}
-.corazon{position:fixed;pointer-events:none;animation:caer linear infinite;color:var(--rosa)}
-@keyframes caer{0%{transform:translateY(-10vh);opacity:1}100%{transform:translateY(110vh);opacity:0}}
+body{background:#fff5f8;font-family:'Poppins',sans-serif;color:#4a2c3a}
+.pantalla{position:fixed;inset:0;background:#fff5f8;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:100;transition:0.7s}
+.pantalla.hide{transform:translateY(-100%);opacity:0}
+.corazon{width:110px;height:110px;background:#ff5e8a;border-radius:40% 40% 50% 50%;display:flex;align-items:center;justify-content:center;animation:flota 2s infinite;box-shadow:0 15px 30px rgba(255,94,138,0.3)}
+.corazon:after{content:'💌';font-size:48px}
+@keyframes flota{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.badge{background:#ffe6ee;color:#ff5e8a;padding:7px 18px;border-radius:20px;font-size:12px;letter-spacing:0.5px;margin:20px 0;font-weight:500}
+.titulo1{font-family:'DM Serif Display',serif;font-size:36px;text-align:center;line-height:1.1}
+.titulo1 span{color:#ff5e8a}
+.sub{font-size:13px;opacity:0.55;margin:14px 28px;text-align:center;max-width:330px;line-height:1.6}
+.btn{background:#ff2e6b;color:#fff;border:none;padding:15px 34px;border-radius:30px;font-size:15px;font-weight:600;cursor:pointer;box-shadow:0 10px 25px rgba(255,46,107,0.35);margin-top:22px}
+.container{max-width:430px;margin:0 auto;padding:18px 16px 100px;background:#fff5f8}
+.card{background:#fff;border-radius:24px;padding:22px;box-shadow:0 10px 40px rgba(0,0,0,0.05);margin-bottom:18px;text-align:center}
+.titulo2{font-family:'DM Serif Display',serif;font-size:30px}
+.contador{display:flex;justify-content:space-between;margin:18px 0}
+.contador div{background:#fff0f5;border-radius:16px;width:31%;padding:14px 4px}
+.contador b{font-size:26px;color:#ff2e6b;display:block}
+.contador span{font-size:10px;opacity:0.6;letter-spacing:1px}
+.hms{display:flex;justify-content:center;gap:8px;margin-top:10px}
+.hms div{background:#f9f9f9;border-radius:10px;padding:8px 12px;font-size:13px;min-width:58px}
+.fotos{position:relative;border-radius:20px;overflow:hidden;height:520px;background:#eee}
+.fotos img{width:100%;height:100%;object-fit:cover;display:block}
+.nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.9);border:none;width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:22px;box-shadow:0 2px 10px rgba(0,0,0,0.1)}
+.prev{left:10px}.next{right:10px}
+.dots{display:flex;justify-content:center;gap:6px;margin-top:12px}
+.dot{width:7px;height:7px;background:#ffd6e0;border-radius:50%;transition:0.3s}
+.dot.active{background:#ff2e6b;width:18px}
+.bar{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);background:#1a1a1a;color:#fff;border-radius:28px;padding:10px 16px;display:flex;align-items:center;gap:12px;width:92%;max-width:400px;z-index:50}
 </style>
 </head>
 <body>
-<div class="hero">
-<img src="https://cdn-icons-png.flaticon.com/512/833/833472.png">
-<p style="background:#ffe3ec;color:#ff2e7a;padding:5px 12px;border-radius:20px;font-size:12px;margin:15px 0">Hecho con mucho cariño ♡</p>
-<h1 style="font-family:'Great Vibes',cursive;font-size:42px">Hecho con amor,<br>solo para ti.</h1>
-<p style="margin-top:10px;color:#8a6a7a">El amor de tu vida preparó esta página con mucho cariño.</p>
-<button class="btn" onclick="document.getElementById('contenido').scrollIntoView({behavior:'smooth'})">Toca aquí, mi amor →</button>
+
+<div class="pantalla" id="p1"><div class="corazon"></div><p style="margin-top:18px;font-size:14px;opacity:0.6">Preparando la sorpresa...</p></div>
+
+<div class="pantalla" id="p2" style="display:none">
+  <div class="badge">Hecho con mucho cariño</div>
+  <div class="corazon" style="width:135px;height:135px"></div>
+  <div class="titulo1">Hecho con amor,<br><span>solo para ti.</span></div>
+  <div class="sub">El amor de tu vida preparo esta pagina con mucho cariño, solo para sorprenderte.</div>
+  <button class="btn" onclick="entrar()">Toca aqui, mi amor 💜</button>
 </div>
 
-<div id="contenido">
-<section>
-<div style="font-size:50px">💗</div>
-<h2 style="font-family:'Great Vibes',cursive;font-size:48px">Para Mi Amor</h2>
-<p id="fechaTexto">Juntos desde 20 de septiembre de 2026</p>
-<div class="contador">
-<div class="box"><b id="anios">0</b><span>AÑOS</span></div>
-<div class="box"><b id="meses">0</b><span>MESES</span></div>
-<div class="box"><b id="dias">0</b><span>DÍAS</span></div>
+<div class="container" id="main" style="display:none">
+  <div class="card">
+    <div style="width:56px;height:56px;background:#ff5e8a;border-radius:50%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px">❤️</div>
+    <div class="titulo2">Para Mi Esposa</div>
+    <div style="font-size:11px;opacity:0.5;margin-top:6px">Juntos desde 20 de agosto de 2026</div>
+    <div class="contador">
+      <div><b id="anios">0</b><span>AÑOS</span></div>
+      <div><b id="meses">0</b><span>MESES</span></div>
+      <div><b id="dias">0</b><span>DIAS</span></div>
+    </div>
+    <div class="hms"><div><b id="h">00</b> Horas</div><div><b id="m">00</b> Min</div><div><b id="s">00</b> Seg</div></div>
+    <div id="total" style="margin-top:14px;font-size:12px;color:#ff5e8a;font-weight:500"></div>
+  </div>
+
+  <div class="card">
+    <h3 style="font-family:'DM Serif Display';font-size:20px">Nuestros Momentos</h3>
+    <p style="font-size:11px;opacity:0.5;margin:4px 0 12px">7 recuerdos que guardo con amor</p>
+    <div class="fotos">
+      <img id="foto" src="foto1.jpg" alt="foto">
+      <button class="nav prev" onclick="cambia(-1)">‹</button>
+      <button class="nav next" onclick="cambia(1)">›</button>
+    </div>
+    <p id="pie" style="margin-top:12px;font-size:13px;color:#ff5e8a;font-weight:500">1 / 7 - Tu y yo, siempre</p>
+    <div class="dots" id="dots"></div>
+  </div>
+
+  <div class="card" style="line-height:1.9;font-size:14px;color:#5a3a4a">
+    Mi amor, eres lo que completa mi vida. No hay suficientes palabras para explicar lo que siento por ti.<br><br>
+    Quiero que sepas que te amo con todo mi corazón, cada dia que pasa te amo mas. Eres mi sueño hecho realidad.<br><br>
+    Gracias por elegirme todos los dias. Te amo, hoy y siempre.
+  </div>
 </div>
-<div class="tiempo" id="reloj">00 : 00 : 00</div>
-<p style="margin-top:10px;font-size:13px">🌸 Son <span id="totalDias">0</span> días de amor 🌸</p>
-</section>
 
-<section class="musica">
-<h3>Nuestra Música</h3>
-<p style="font-size:12px;color:#999">La banda sonora de nuestro amor</p>
-<button class="btn" style="background:#ff6b9d" onclick="toggleAudio()">♪ Toca para descubrir</button>
-<audio id="audio" loop></audio>
-<p id="nombreCancion" style="margin-top:15px;font-weight:600;display:none">Nuestra canción</p>
-</section>
-
-<section>
-<div class="carta">
-Mi amor, solo quería recordarte lo muchísimo que significas para mí.  A veces siento que no existen suficientes palabras para explicar todo lo que siento por ti, pero quiero que sepas que te amo con todo mi corazón.
+<div class="bar">
+  <div style="width:40px;height:40px;background:#ff2e6b;border-radius:10px;display:flex;align-items:center;justify-content:center">♫</div>
+  <div style="flex:1"><div style="font-size:13px;font-weight:600">Amor Completo</div><div style="font-size:11px;opacity:0.6" id="estado">Mon Laferte</div></div>
+  <button onclick="play()" style="background:#fff;color:#000;border:none;width:36px;height:36px;border-radius:50%">▶️</button>
 </div>
-</section>
 
-<section>
-<h2>Nuestros Momentos</h2>
-<div class="galeria" style="margin-top:20px">
-<button class="flecha prev" onclick="cambiarFoto(-1)">‹</button>
-<img id="fotoGaleria" src="https://images.unsplash.com/photo-1529634597503-139d3726fed5?w=500">
-<button class="flecha next" onclick="cambiarFoto(1)">›</button>
-</div>
-<p id="captionFoto" style="margin-top:12px;color:#ff2e7a">Tu y yo, siempre ♡</p>
-</section>
-
+<audio id="audio" src="cancion.mp3" loop preload="auto"></audio>
 
 <script>
-const fechaInicio = new Date('2022-03-18T00:00:00');
-function actualizarContador(){
- const ahora = new Date();
-const fechaInicio = new Date('2026-09-20T00:00:00');
- const totalDias = Math.floor(diff / (1000*60*60*24));
- document.getElementById('totalDias').innerText = totalDias;
- let anios = ahora.getFullYear() - fechaInicio.getFullYear();
- let meses = ahora.getMonth() - fechaInicio.getMonth();
- let dias = ahora.getDate() - fechaInicio.getDate();
- if(dias<0){meses--; dias+=30} if(meses<0){anios--; meses+=12}
- document.getElementById('anios').innerText=anios;
- document.getElementById('meses').innerText=meses;
- document.getElementById('dias').innerText=dias;
- document.getElementById('reloj').innerText = ahora.toLocaleTimeString();
+// Pantallas
+setTimeout(function(){document.getElementById('p1').style.display='none';document.getElementById('p2').style.display='flex';},1500);
+function entrar(){document.getElementById('p2').classList.add('hide');setTimeout(function(){document.getElementById('p2').style.display='none';document.getElementById('main').style.display='block';play();},600);}
+
+// Contador
+var inicio=new Date(2026,7,20);
+function upd(){
+  var ahora=new Date(); var diff=ahora-inicio; if(diff<0) diff=0;
+  var dTot=Math.floor(diff/86400000);
+  document.getElementById('anios').innerText=Math.floor(dTot/365);
+  document.getElementById('meses').innerText=Math.floor((dTot%365)/30);
+  document.getElementById('dias').innerText=(dTot%365)%30;
+  document.getElementById('total').innerText='Son '+dTot+' dias de amor';
+  document.getElementById('h').innerText=String(ahora.getHours()).padStart(2,'0');
+  document.getElementById('m').innerText=String(ahora.getMinutes()).padStart(2,'0');
+  document.getElementById('s').innerText=String(ahora.getSeconds()).padStart(2,'0');
 }
-setInterval(actualizarContador,1000); actualizarContador();
-const fotos=[
-    {url:"foto1.jpg",txt:"1 / 7 - Tú y yo, siempre 💜"},
-    {url:"foto2.jpg",txt:"2 / 7 - Nuestra primera foto juntos"},
-    {url:"foto3.jpg",txt:"3 / 7 - Ese día que nunca olvidaremos"},
-    {url:"foto4.jpg",txt:"4 / 7 - Mi lugar favorito eres tú"},
-    {url:"foto5.jpg",txt:"5 / 7 - Amarte es mi plan favorito"},
-    {url:"foto6.jpg",txt:"6 / 7 - Juntos es mejor"},
-    {url:"foto7.jpg",txt:"7 / 7 - Para siempre juntos 💜"}
+setInterval(upd,1000); upd();
+
+// Musica
+function play(){
+  var a=document.getElementById('audio'); var e=document.getElementById('estado');
+  if(a.paused){a.play().then(function(){e.innerText='Reproduciendo...';}).catch(function(){e.innerText='Activa el sonido';});}
+  else{a.pause();e.innerText='Pausado';}
+}
+
+// 7 Fotos
+var fotos=[
+  {url:'foto1.jpg',txt:'1 / 7 - Tu y yo, siempre'},
+  {url:'foto2.jpg',txt:'2 / 7 - Nuestra primera foto'},
+  {url:'foto3.jpg',txt:'3 / 7 - Ese dia inolvidable'},
+  {url:'foto4.jpg',txt:'4 / 7 - Mi lugar favorito eres tu'},
+  {url:'foto5.jpg',txt:'5 / 7 - Amarte es mi plan'},
+  {url:'foto6.jpg',txt:'6 / 7 - Juntos es mejor'},
+  {url:'foto7.jpg',txt:'7 / 7 - Para siempre juntos'}
 ];
-
-let idx=0;
-function cambiarFoto(d){idx=(idx+d+fotos.length)%fotos.length; document.getElementById('fotoGaleria').src=fotos[idx].url; document.getElementById('captionFoto').innerText=fotos[idx].cap}
-
-const audio = document.getElementById('audio');
-audio.src = "cancion.mp3";
-
-function toggleAudio(){
- if(audio.paused){audio.play(); document.getElementById('nombreCancion').style.display='block'}
- else audio.pause();
+var idx=0;
+var dotsBox=document.getElementById('dots');
+fotos.forEach(function(_,i){var d=document.createElement('div');d.className='dot'+(i==0?' active':'');dotsBox.appendChild(d);});
+function cambia(dir){
+  idx=(idx+dir+fotos.length)%fotos.length;
+  document.getElementById('foto').src=fotos[idx].url;
+  document.getElementById('pie').innerText=fotos[idx].txt;
+  document.querySelectorAll('.dot').forEach(function(dot,i){dot.classList.toggle('active',i===idx);});
 }
 </script>
 </body>
